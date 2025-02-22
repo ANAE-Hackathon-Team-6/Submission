@@ -1,0 +1,76 @@
+version: "3.8" # Updated version
+
+services:
+  db:
+    container_name: postgres_1
+    image: pgvector/pgvector:pg16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    env_file: .env
+    network_mode: host
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+
+  backend:
+    container_name: django_1
+    build: backend/
+    network_mode: host
+    volumes:
+      - ./backend:/backend
+    env_file: .env
+    command: python manage.py runserver 0.0.0.0:8000 & celery -A base worker --loglevel=info & daphne -b 0.0.0.0 -p 8001 config.asgi:application
+    depends_on:
+      - db
+      - redis
+    restart: on-failure
+
+  celery:
+    container_name: celery_worker
+    build: backend/
+    network_mode: host
+    volumes:
+      - ./backend:/backend
+    env_file: .env
+    environment:
+      - CELERY_BROKER_URL=redis://localhost:6379/0
+      - CELERY_RESULT_BACKEND=redis://localhost:6379/0
+    command: celery -A base worker --loglevel=info
+    depends_on:
+      - backend
+      - redis
+    restart: on-failure
+
+  celery-beat:
+    container_name: celery_beat
+    build: backend/
+    network_mode: host
+    volumes:
+      - ./backend:/backend
+    env_file: .env
+    environment:
+      - CELERY_BROKER_URL=redis://localhost:6379/0
+      - CELERY_RESULT_BACKEND=redis://localhost:6379/0
+    command: celery -A base beat --loglevel=info
+    depends_on:
+      - backend
+      - redis
+      - celery
+    restart: on-failure
+
+  redis:
+    image: redis
+    container_name: redis_1
+    env_file: .env
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    command: redis-server
+    network_mode: host
+    volumes:
+      - redis-data:/var/lib/redis
+
+volumes:
+  postgres_data:
+  redis-data:

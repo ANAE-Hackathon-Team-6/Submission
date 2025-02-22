@@ -1,0 +1,49 @@
+@startuml
+
+class Activity {
+    + id: int
+    + code_pro: string
+    + wilaya: string
+    + field: string
+    + activity: string
+    + user_id: int
+    + meta_data: json
+    + description: string
+    + created_at: date
+    + updated_at: date
+}
+
+class User {
+    + id: int
+    + first_name: string
+    + last_name: string
+    + email: string
+    + password: string
+    + role: string ( admin or not )
+    + created_at: date
+    + updated_at: date
+}
+
+class Jobs {
+    + id: int
+    + user_id: int
+    + file: string
+    + status: string
+    + created_at: date
+    + updated_at: date
+}
+
+class Notifications {
+    + id: int
+    + user_id: int
+    + message: string
+    + status: string
+    + created_at: date
+    + updated_at: date
+}
+
+User "1" -- "0..*" Activity : creates
+User "1" -- "0..*" Jobs : submits
+User "1" -- "0..*" Notifications : receives
+
+@enduml

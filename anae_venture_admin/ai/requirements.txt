@@ -1,0 +1,9 @@
+pinecone-client
+chromadb
+numpy
+pandas
+python-dotenv
+langchain
+langchain-google-genai
+google-generativeai
+python-dotenv

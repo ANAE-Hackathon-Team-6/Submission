@@ -1,0 +1,11 @@
+pinecone
+chromadb
+numpy
+pandas
+python-dotenv
+langchain
+langchain-google-genai
+google-generativeai
+python-dotenv
+langdetect
+mtranslate
