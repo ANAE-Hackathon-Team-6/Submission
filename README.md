@@ -129,6 +129,11 @@ python manage.py migrate
 
 
 
+### 4. populating the database
+
+```
+python manage.py insert_activities /backend/data/activity.csv
+```
 
 
 
