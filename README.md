@@ -106,11 +106,33 @@ python app.py
 ```
 # Setuping of the admin server: (anae-admin-dashboard)
 
-### 1. 
+### 1. setup the .env file
 
 ```
-cd admin-dashboard
+cd admin-dashboard and create a .env file liek the .env.example
 ```
+
+### 2. runing the servers
+```
+sudo docker compose up
+```
+
+
+### 3. runing the migrations 
+
+```
+sudo docker exec  -it django_1 sh
+```
+```
+python manage.py migrate
+```
+
+
+
+
+
+
+
 
 
 
