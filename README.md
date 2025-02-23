@@ -19,7 +19,8 @@ This project is a user-side application built with **React** and **TypeScript**.
 - **Propose Activity Form**  
   Users can propose new activities via a dedicated form. The AI model processes submissions by:
   - Checking for similarity and redundancy against existing activities.
-  - Notifying the user if a similar activity is found.
+  - Notifying the user if a similar activity is found, in realtime when typing the activity name or description, they can click on it will take them to the page of form submission to become auto-entrpreneur with
+  the activity name already selected from the most similar one.
   - Allowing logged-in users to add the existing activity directly to their profile.
 
 - **AI Integration in Search Activity Fields**  
