@@ -106,6 +106,14 @@ python app.py
 ```
 # Setuping of the admin server: (anae-admin-dashboard)
 
+### 1. 
+
+```
+cd admin-dashboard
+```
+
+
+
 
 '
 
