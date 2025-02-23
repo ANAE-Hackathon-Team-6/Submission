@@ -104,8 +104,10 @@ cd anae-ai && pip install -r requirements.txt
 ```
 python app.py
 ```
+# Setuping of the admin server: (anae-admin-dashboard)
 
 
+'
 
 
   
