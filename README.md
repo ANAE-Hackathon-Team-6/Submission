@@ -3,7 +3,7 @@ this repository has all the repositories of the final submission
 
 It contains  all the apps and services for both the admin and the user side  
 
-# Setuping of the front end : (anae-user-side)
+# Setuping of the front end : (user-pages)
 
 This project is a user-side application built with **React** and **TypeScript**. It provides an interactive interface for users to interact with an AI-powered backend system. The application features a chatbot, activity proposal form, and enhanced search capabilities—all designed to deliver a seamless user experience.
 
@@ -40,11 +40,11 @@ This project is a user-side application built with **React** and **TypeScript**.
 2. **Install dependencies:**
   using npm:
    ```bash
-   cd npm install
+   cd user_pages && npm install
 
   or using yarn: 
   ```bash
-   yarn install
+   cd user_pages && yarn install
   ```
 3. **Running the Application**
    To run the application locally in development mode, execute:
@@ -71,7 +71,7 @@ This project is a user-side application built with **React** and **TypeScript**.
 Technologies Used
 React – 
 TypeScript – 
-# Setuping of the ai server: (anae-ai)
+# Setuping of the ai server: (ai-backend)
 
 This guide provides steps to set up and run the Anae-AI frontend. You can either use **Docker** or install dependencies manually using `pip`.
 
