@@ -33,13 +33,14 @@ This project is a user-side application built with **React** and **TypeScript**.
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/your-project.git
-   cd your-project
+   git clone https://github.com/ANAE-Hackathon-Team-6/Submission.git
+   cd Submission
+  ```
 
 2. **Install dependencies:**
   using npm:
    ```bash
-   npm install
+   cd npm install
 
   or using yarn: 
   ```bash
@@ -70,7 +71,7 @@ This project is a user-side application built with **React** and **TypeScript**.
 Technologies Used
 React – 
 TypeScript – 
-# Setuping of the front end : (anae-ai)
+# Setuping of the ai server: (anae-ai)
 
 This guide provides steps to set up and run the Anae-AI frontend. You can either use **Docker** or install dependencies manually using `pip`.
 
@@ -97,11 +98,14 @@ conda activate <your-conda-env>
 ```
 cd anae-ai && pip install -r requirements.txt
 ```
+### 3. create a .env file and add your own api keys
 
-### 3. run the server
+### 4. run the server
 ```
 python app.py
 ```
+
+
 
 
   
